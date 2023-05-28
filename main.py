@@ -8,9 +8,9 @@ class Rescuer:
         self.position = position
 
     def display_details(self):
-        print(f"Name: {self.first_name} {self.last_name}")
-        print(f"Age: {self.age}")
-        print(f"Position: {self.position}")
+        print(f"Dane osobowe: {self.first_name} {self.last_name}")
+        print(f"Wiek: {self.age}")
+        print(f"Stanowisko: {self.position}")
 
 
 class RescuerRegistry:
@@ -19,21 +19,21 @@ class RescuerRegistry:
 
     def add_rescuer(self, rescuer):
         self.rescuers.append(rescuer)
-        print("Rescuer added successfully.")
+        print("Ratownik został dodany.")
 
     def remove_rescuer(self, first_name, last_name):
         for rescuer in self.rescuers:
             if rescuer.first_name == first_name and rescuer.last_name == last_name:
                 self.rescuers.remove(rescuer)
-                print(f"Rescuer {first_name} {last_name} removed.")
+                print(f"Ratownik {first_name} {last_name} usunięty.")
                 return
-        print(f"Rescuer {first_name} {last_name} not found.")
+        print(f"Ratownik {first_name} {last_name} nie znaleziono.")
 
     def display_all_rescuers(self):
         if not self.rescuers:
-            print("No rescuers found.")
+            print("Brak ratowników.")
         else:
-            print("All Rescuers:")
+            print("Wszyscy ratownicy podziału bojowego:")
             for rescuer in self.rescuers:
                 rescuer.display_details()
 
@@ -41,9 +41,9 @@ class RescuerRegistry:
         filtered_rescuers = [rescuer for rescuer in self.rescuers if start_age <= rescuer.age <= end_age]
 
         if not filtered_rescuers:
-            print(f"No rescuers found in age range {start_age}-{end_age}.")
+            print(f"Nie znaleziono ratowników w przedziale wiekowym {start_age}-{end_age}.")
         else:
-            print(f"Rescuers in age range {start_age}-{end_age}:")
+            print(f"Ratownicy w przedziale wiekowym {start_age}-{end_age}:")
             for rescuer in filtered_rescuers:
                 rescuer.display_details()
 
